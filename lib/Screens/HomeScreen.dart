@@ -77,8 +77,9 @@ class HomeState extends State<HomeScreen>{
                          child: Image.asset(
 
                            restModel.image,
-                           height: 150,
-                           fit: BoxFit.fill,
+                           height: 135,
+
+                           fit: BoxFit.contain,
                          ),
                        ),
 
@@ -86,8 +87,8 @@ class HomeState extends State<HomeScreen>{
                          padding: const EdgeInsets.all(8.0),
                          child: TextWidget(
                              input:restModel.restaurantName,
-                             fontsize: 18,
-                             fontWeight: FontWeight.w700,
+                             fontsize: 17,
+                             fontWeight: FontWeight.w800,
                              textcolor: MyColors.blue),
                        ),
 

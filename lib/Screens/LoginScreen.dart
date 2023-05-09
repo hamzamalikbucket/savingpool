@@ -168,26 +168,7 @@ class LoginState extends State<Login> {
             ),
             Utils.FORM_HINT_PADDING,
             Utils.FORM_HINT_PADDING,
-          /*  Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextWidget(
-                    input: "Dont have an account?",
-                    fontsize: 15,
-                    fontWeight: FontWeight.w500,
-                    textcolor: MyColors.black),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, Constants.signUpScreen);
-                  },
-                  child: TextWidget(
-                      input: "Sign Up",
-                      fontsize: 15,
-                      fontWeight: FontWeight.w500,
-                      textcolor: MyColors.blue),
-                ),
-              ],
-            ),*/
+
           ],
         ));
   }
