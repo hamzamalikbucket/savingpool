@@ -4,10 +4,15 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:savingpool/Models/DealsModel.dart';
 import 'package:savingpool/Models/RestaurantModel.dart';
 import 'package:savingpool/MyColors.dart';
+import 'package:savingpool/Screens/BottomBar.dart';
+import 'package:savingpool/Screens/NavigationScreen.dart';
 import 'package:savingpool/widgets/BtnNullHeightWidth.dart';
 import 'package:savingpool/widgets/CardHomeWidget.dart';
 import 'package:savingpool/widgets/TextWidget.dart';
 import 'package:savingpool/widgets/Toolbar.dart';
+import 'package:bottom_loader/bottom_loader.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+
 
 class DealsScreenMain extends StatefulWidget{
   @override
@@ -26,9 +31,27 @@ class DealsState extends State<DealsScreenMain>{
   bool yearly=false;
   bool menu=false;
   String qrURL="";
+  List<DealsModel> dealModel=[
+    DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","1","120"),
+    DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","2","120"),
+    DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","3","120"),
+
+    DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","4","120"),
+    DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","5","120"),
+
+    DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","6","120"),
+    DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","7","120"),
+
+    DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","8","120"),
+
+    DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","9","120"),
+    DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","10","120"),
+
+  ];
 
   bool _showPopup = false;
   double _popupHeight = 0;
+  late BottomLoader bl;
 
   void _showProductPopup(DealsModel product) {
     setState(() {
@@ -101,10 +124,11 @@ class DealsState extends State<DealsScreenMain>{
                     ),
                     BtnNullHeightWidth(
                       title: "Redeem",
-                      bgcolour: (daily)?MyColors.blue:MyColors.whiteColor,
+                      bgcolour: MyColors.blue,
                       disablecolor: MyColors.yellowColor,
-                      textcolour: (daily)?MyColors.whiteColor:MyColors.black,
+                      textcolour: MyColors.whiteColor,
                       onPress: () {
+                        Navigator.pop(context);
 
 
 
@@ -152,30 +176,32 @@ class DealsState extends State<DealsScreenMain>{
     }
   }
 
+  void initState() {
+    // TODO: implement initState
+    bl = BottomLoader(context,
+        isDismissible: true,
+        showLogs: true,
+        loader: CircularProgressIndicator(
+          color: MyColors.blue,
+        ));
+    bl.style(
+        message: 'Please Wait...',
+        backgroundColor: MyColors.blue,
+        messageTextStyle: TextStyle(
+            color: MyColors.blue,
+            fontSize: 19.0,
+            fontWeight: FontWeight.w600));
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<DealsModel> dealModel=[
-      DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","1","120"),
-      DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","2","120"),
-      DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","3","120"),
 
-      DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","4","120"),
-      DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","5","120"),
-
-      DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","6","120"),
-      DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","7","120"),
-
-      DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","8","120"),
-
-      DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","9","120"),
-      DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","10","120"),
-
-    ];
     // TODO: implement build
     restaurantModel= ModalRoute.of(context)!.settings.arguments as RestaurantModel;
     print(restaurantModel.restaurantId);
     return Scaffold(
       appBar: ToolbarBack(appBar: AppBar(), title: restaurantModel.restaurantName,),
+      
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -219,6 +245,29 @@ class DealsState extends State<DealsScreenMain>{
                           daily=true;
                           yearly=false;
                           menu=false;
+
+                          dealModel.clear();
+                          dealModel=[
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","1","120"),
+                            DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","2","120"),
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","3","120"),
+
+                            DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","4","120"),
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","5","120"),
+
+                            DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","6","120"),
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","7","120"),
+
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","8","120"),
+
+                            DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","9","120"),
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","10","120"),
+
+                          ];
+
+
+
+
                         });
 
 
@@ -236,7 +285,21 @@ class DealsState extends State<DealsScreenMain>{
                           daily=false;
                           yearly=true;
                           menu=false;
+
+                          dealModel.clear();
+                          dealModel=[
+
+                            DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","4","120"),
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","5","120"),
+
+                            DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","6","120"),
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","7","120"),
+
+                           ];
+
+
                         });
+
 
 
                       },
@@ -253,6 +316,12 @@ class DealsState extends State<DealsScreenMain>{
                           daily=false;
                           yearly=false;
                           menu=true;
+                          dealModel.clear();
+                          dealModel=[
+
+                            DealsModel("assets/images/burgerdeal.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Zinger","4","120"),
+                            DealsModel("assets/images/bgg.png", "lorem ipsum detai is coming from backend of product this product is use for mutiple xyxz you can redeem this deal using your qr etx asadsadsad", "5", "Free Burgers","5","120"),
+                          ];
                         });
 
 

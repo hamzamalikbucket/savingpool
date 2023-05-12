@@ -16,26 +16,18 @@ class ToolbarBack extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return (
         AppBar(
+          backgroundColor: MyColors.whiteColor,
 //`true` if you want Flutter to automatically add Back Button when needed,
           automaticallyImplyLeading: true,
             centerTitle: true,
-          title:Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              TextWidget(
-                  input: title,
-                  fontsize: 16,
-                  fontWeight: FontWeight.normal,
-                  textcolor: MyColors.whiteColor),
 
-
-
-
-
-            ],
-          ),
+          title:TextWidget(
+              input: title,
+              fontsize: 16,
+              fontWeight: FontWeight.bold,
+              textcolor: MyColors.black),
           iconTheme: IconThemeData(
-            color: MyColors.whiteColor,
+            color: MyColors.black,
 
             //change your color here
           ),

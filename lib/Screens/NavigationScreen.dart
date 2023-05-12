@@ -3,6 +3,8 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:savingpool/Screens/HomeScreen.dart';
+import 'package:savingpool/Screens/MoreScreen.dart';
+import 'package:savingpool/Screens/RestaurantScreen.dart';
 import 'package:savingpool/widgets/TextWidget.dart';
 
 
@@ -29,9 +31,9 @@ class BottomBarState extends State<NavigationScreen> {
   int _selectedIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
-    const Login(),
-    const Login(),
-    const Login(),
+    const RestaurantScreen(),
+    MoreScreen(),
+
 
   ];
   Widget _intInitialWidget = HomeScreen();
@@ -44,7 +46,9 @@ class BottomBarState extends State<NavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _intInitialWidget,
-      bottomNavigationBar: BottomNavyBar(
+      bottomNavigationBar:
+
+      BottomNavyBar(
         containerHeight: 55.00,
         selectedIndex: _selectedIndex,
         showElevation: true, // use this to remove appBar's elevation
@@ -67,7 +71,7 @@ class BottomBarState extends State<NavigationScreen> {
               inactiveColor: MyColors.gray
 
           ),
-          BottomNavyBarItem(
+    /*      BottomNavyBarItem(
               icon: const ImageIcon(
                 AssetImage("assets/images/reward.png"),
                 size: 22,
@@ -84,7 +88,7 @@ class BottomBarState extends State<NavigationScreen> {
               title:TextWidget(input: "Delivery", fontsize:12, fontWeight: FontWeight.w700, textcolor:MyColors.blue),
               activeColor: MyColors.darkblueColor,
               inactiveColor: MyColors.gray,
-          ),
+          ),*/
           BottomNavyBarItem(
             icon: const ImageIcon(
               AssetImage("assets/images/ic_account_address.png",),
@@ -136,10 +140,7 @@ class BottomBarState extends State<NavigationScreen> {
           _intInitialWidget = _children[2];
 
           break;
-        case 3:
-          _intInitialWidget = _children[3];
 
-          break;
 
 
 

@@ -5,6 +5,7 @@ import 'package:savingpool/MyColors.dart';
 import 'package:savingpool/Screens/DealsScreenMain.dart';
 import 'package:savingpool/widgets/CardHomeWidget.dart';
 import 'package:savingpool/widgets/TextWidget.dart';
+import 'package:savingpool/widgets/Toolbar.dart';
 
 class HomeScreen extends StatefulWidget{
   @override
@@ -28,6 +29,8 @@ class HomeState extends State<HomeScreen>{
   Widget build(BuildContext context) {
     // TODO: implement build
    return Scaffold(
+     backgroundColor: MyColors.whiteColor,
+     appBar: ToolbarBack(appBar: AppBar(), title: "Home",),
      body: SafeArea(
        child: SingleChildScrollView(
          child: Column(
@@ -60,7 +63,6 @@ class HomeState extends State<HomeScreen>{
                    ),);
 
                },
-
                child: Card(
                    color: MyColors.whiteColor,
                    elevation: 2,
